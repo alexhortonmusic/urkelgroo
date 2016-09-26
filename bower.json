@@ -1,0 +1,22 @@
+{
+  "name": "urkelgroo",
+  "description": "Basic RCDU  (CRUD) App. Focus is on Node.js back-end code.",
+  "main": "server.js",
+  "authors": [
+    "Alex Horton"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/alexhortonmusic/urkelgroo",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "client/lib",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "angular-route": "^1.5.8",
+    "bootstrap": "^3.3.7"
+  }
+}
