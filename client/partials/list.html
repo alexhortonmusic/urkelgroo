@@ -9,5 +9,7 @@
   (click each item to delete it from your list...)
 </p>
 <div class="list-group">
-  <button type="submit" class="list-group-item" ng-repeat='task in tasks'>{{ task.task }}</button>
+  <form ng-submit='removeTask(task._id)' ng-repeat='task in tasks'>
+    <button type="submit" id={{task._id}} class="list-group-item">{{ task.task }}</button>
+  </form>
 </div>
