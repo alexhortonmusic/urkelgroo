@@ -10,6 +10,7 @@ angular
       })
   )
   .controller('ListCtrl', function ($scope, $http) {
+
     $scope.addTask = () => {
       const task = {
         task: $scope.thingToDo
@@ -21,7 +22,25 @@ angular
           $scope.tasks.push(task)
         })
         .catch(console.error)
+
+      $http
+        .get('/api/tasks')
+        .then(({ data: { tasks }}) =>
+          $scope.tasks = tasks
+        )
     }
+
+    $scope.removeTask = (taskId) => {
+      $http
+        .delete(`/api/tasks/${taskId}`)
+        // .then((obj) => console.log(obj))
+      $http
+        .get('/api/tasks')
+        .then(({ data: { tasks }}) =>
+          $scope.tasks = tasks
+        )
+    }
+
     $http
       .get('/api/tasks')
       .then(({ data: { tasks }}) =>

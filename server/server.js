@@ -36,6 +36,14 @@ app.post('/api/tasks', (req, res) => {
     .catch(console.error)
 })
 
+app.delete('/api/tasks/:id', (req, res) => {
+  const id = req.params.id
+  Task
+    .remove({ _id: id })
+    .then(() => res.json(id))
+    .catch(console.error)
+})
+
 mongoose.Promise = Promise
 mongoose.connect(MONGODB_URL, () =>
   app.listen(PORT, () => console.log(`Listening on port: ${PORT}`))
